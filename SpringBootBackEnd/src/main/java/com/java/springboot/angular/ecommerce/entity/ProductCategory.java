@@ -20,6 +20,7 @@ import lombok.Setter;
 @Setter
 public class ProductCategory {
 
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
@@ -28,6 +29,6 @@ public class ProductCategory {
     @Column(name="category_name")
     private String categoryName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = 'category')
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> product;
 }
