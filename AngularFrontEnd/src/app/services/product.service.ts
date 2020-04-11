@@ -9,7 +9,7 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root'
 })
 
-/*** Product Service must registered in app.module section providers*/
+/*** Product Service to call REST API and must registered in app.module section providers*/
 export class ProductService {
 
   // Provide url of the backend to return product
