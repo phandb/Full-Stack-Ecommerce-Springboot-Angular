@@ -1,0 +1,56 @@
+"<div class="main-content">
+    <div class="section-content section-content-p30">
+      <h4 class="mb-3">Category: {{ currentCategoryName }}</h4>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Loop over the collection of producs-->
+          <div *ngFor="let product of products" class="col-md-3">
+              <div class="product-box">
+                <a routerLink="/products/{{ product.id }}">
+                  <img src="{{ product.imageUrl }}" alt="" class="img-responsive">
+  
+                </a>
+  
+                <a routerLink="/products/{{ product.id }}">
+                  <h1> {{ product.name }}</h1>
+                </a>
+                
+                <div class="price"> {{ product.unitPrice | currency:'USD' }}</div>
+                <a href="#" class="primary-btn">Add to cart</a>
+              </div>
+          </div>
+  
+          <!--If product not found-->
+          <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+              No Product Found!
+          </div>
+        </div>
+  
+        <!--- Begin footer -->
+        <div class="footer-pagination">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-9" style="padding-left: 30% ">
+                    <ngb-pagination [(page)]="thePageNumber"
+                                    [pageSize]="thePageSize"
+                                    [collectionSize]="theTotalElements"
+                                    (pageChange)="listProducts()">  
+                      <!-- left-hand side: parameters of ngb-pagination component
+                      right-hand side: properties of ProductListComponent
+                    Event-binding pageChange event-->
+                    </ngb-pagination>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!--- End footer -->
+      </div>
+    </div>
+  </div>
+  
+
