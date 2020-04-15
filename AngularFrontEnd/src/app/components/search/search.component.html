@@ -1,1 +1,13 @@
-<p>search works!</p>
+<form class="form-inline my-2 my-lg-0 mf-auto " , onsubmit="return false;" method="GET">
+    <input #myInput 
+    class="form-control mr-sm-2"
+     type="text" 
+     name="search"
+     placeholder="Search for products..."
+     (keyup.enter)="doSearch(myInput.value)" />
+
+    <button (click)="doSearch(myInput.value)" 
+            class="btn btn-outline-success my-2 my-sm-0" >
+            Search
+    </button>
+</form>

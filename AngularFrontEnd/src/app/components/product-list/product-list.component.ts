@@ -46,7 +46,6 @@ export class ProductListComponent implements OnInit {
     }
   }
   handleListProducts() {
-    
     // Check if id parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('is');
 
