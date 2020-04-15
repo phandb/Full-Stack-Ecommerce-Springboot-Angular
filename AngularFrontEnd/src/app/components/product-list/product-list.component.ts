@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   currrentCategoryId: number;
   previousCategoryId: number;
   currentCategoryName: string;
+  // tslint:disable-next-line: no-inferrable-types
   searchMode: boolean;
 
   // Properties for pagination

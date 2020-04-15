@@ -1,9 +1,7 @@
-<form class="form-inline my-2 my-lg-0 mf-auto " , onsubmit="return false;" method="GET">
-    <input #myInput 
+<form class="form-inline my-2 my-lg-0 mf-auto " onsubmit="return false;" method="GET">
+    <input #myInput type="text" 
     class="form-control mr-sm-2"
-     type="text" 
-     name="search"
-     placeholder="Search for products..."
+    placeholder="Search for products..."
      (keyup.enter)="doSearch(myInput.value)" />
 
     <button (click)="doSearch(myInput.value)" 
