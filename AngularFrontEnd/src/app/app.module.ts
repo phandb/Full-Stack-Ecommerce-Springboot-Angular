@@ -8,6 +8,19 @@ import { ProductService } from './services/product.service';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { SearchComponent } from './components/search/search.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+//  Define Routes
+const routes: Routes = [
+  { path: 'product/:id', component: ProductDetailsComponent},
+  { path: 'search/:keyword', component: ProductListComponent},
+  { path: 'category/:id/:name', component: ProductListComponent},
+  { path: 'category', component: ProductListComponent},
+  { path: 'products', component: ProductListComponent},
+  { path: '', redirectTo: '/products', pathMatch: 'full'},
+  { path: '**', redirectTo: '/products', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -18,8 +31,11 @@ import { SearchComponent } from './components/search/search.component';
     SearchComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    // FontAwesome,
+    NgbModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
