@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 //  Define Routes
 const routes: Routes = [
@@ -34,7 +35,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    FontAwesome,
+    FontAwesomeModule,
     NgbModule
   ],
   providers: [ProductService],
