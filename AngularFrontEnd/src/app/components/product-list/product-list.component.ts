@@ -14,16 +14,16 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
-  currrentCategoryId: number;
-  previousCategoryId: number;
+  currrentCategoryId = 1;
+  previousCategoryId = 1;
   currentCategoryName: string;
   // tslint:disable-next-line: no-inferrable-types
-  searchMode: boolean;
+  searchMode: boolean = false;
 
   // Properties for pagination
-  thePageNumber: number;
-  thePageSize: number;
-  theTotalElements: number;
+  thePageNumber = 1;
+  thePageSize = 10;
+  theTotalElements = 0;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
@@ -41,15 +41,29 @@ export class ProductListComponent implements OnInit {
   listProducts() {
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
 
-    if(this.searchMode) {
+    if (this.searchMode) {
       this.handleSearchProducts();
     } else {
       this.handleListProducts();
     }
   }
+
+  handleSearchProducts() {
+
+    // optain the keyword
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+
+    // search for product using keyword
+    this.productService.searchProducts(theKeyword).subscribe(
+        data => {
+          this.products = data;
+        }
+    );
+  }
+
   handleListProducts() {
     // Check if id parameter is available
-    const hasCategoryId: boolean = this.route.snapshot.paramMap.has('is');
+    const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if (hasCategoryId) {
       // get the id and convert to a number
@@ -84,20 +98,9 @@ export class ProductListComponent implements OnInit {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;  //  Spring Data REST is 0-based
       this.thePageSize = data.page.size;
-      this.theTotalElements = data.page.theTotalElements;
+      this.theTotalElements = data.page.TotalElements;
     };
   }
-  handleSearchProducts() {
 
-    // optain the keyword 
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
-
-    // search for product using keyword
-    this.productService.searchProducts(theKeyword).subscribe(
-        data => {
-          this.products = data;
-        }
-    );
-  }
 
 }
