@@ -1,13 +1,28 @@
-<div class="detail-section">
-    <div class="container-fluid">
-      <img src="{{ product.imageUrl }}"  class="detail-img">
-  
-      <h3>{{ product.name }}</h3>
-      <div class="price">{{product.unitPrice | currency:'USD' }}</div>
-      <a href="#" class="primary-btn"> Add to Cart</a>
-      <hr>
-      <h4>Description</h4>
-      <p>{{ product.description }}</p>
-      <a routerLink="/products" class="mt-5">Back to Products List</a>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h4 class="h3 mb-0 text-gray-800">Product Details</h4>
+
+</div>
+
+  <div class="card m-auto border-success" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ product.imageUrl }}" class="card-img-top border-success" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description}}</p>
+          <p class="card-text"><small class="text-muted">{{ product.unitPrice | currency: 'USD' }}</small></p>
+       
+        </div>
+      </div>
+      
+    </div>
+    <div class="card-footer ">
+      <div class="row">
+        <a class=" btn btn-outline-success col-6" href="#"> Add to cart</a>
+        <a class=" btn btn-outline-danger col-6" routerLink="/products" >Back to Products List</a>
+      </div>
+      
     </div>
   </div>

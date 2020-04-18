@@ -36,7 +36,34 @@
    </div>
 
    <!-- Pagination-->
+   <div class="pagination">
+     <div class="row">
+       <div class="col-md-6">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="col-m-9">
+               <ngb-pagination [(page)]="thePageNumber"
+                               [pageSize]="thePageSize"
+                               [collectionSize]="theTotalElements"
+                               (pageChange)="listProducts()">
+                   <!-- left-hand side: parameters of ngb-pagination component
+                    right-hand side: properties of ProductListComponent
+                  Event-binding pageChange event-->            
+               </ngb-pagination>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+<!-- End of Pagination-->
    
+   
+
+
+
+
   
 
 </div>
