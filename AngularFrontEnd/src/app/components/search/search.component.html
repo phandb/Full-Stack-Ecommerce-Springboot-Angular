@@ -1,13 +1,20 @@
-<form class="form-inline my-2 my-lg-0 mf-auto " onsubmit="return false;" method="GET">
-    <input #myInput type="text" 
-    class="form-control mr-sm-2"
-    placeholder="Search for products..."
-     (keyup.enter)="doSearch(myInput.value)" />
 
-    <button (click)="doSearch(myInput.value)" 
-            class="btn btn-outline-success my-2 my-sm-0" >
-            Search
-    </button>
+
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                onsubmit="return false;" method="GET">
+    <div class="input-group">
+        <input #myInput type="text" 
+                class="form-control bg-light border-primary small" 
+                placeholder="Search for..." 
+                aria-label="Search" 
+                aria-describedby="basic-addon2"
+                (keyup.enter)="doSearch(myInput.value)"/>
+
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
 </form>
-
-

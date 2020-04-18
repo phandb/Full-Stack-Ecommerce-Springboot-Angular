@@ -1,56 +1,23 @@
-"<div class="main-content">
-    <div class="section-content section-content-p30">
-      <h4 class="mb-3">Category: {{ currentCategoryName }}</h4>
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Loop over the collection of producs-->
-          <div *ngFor="let product of products" class="col-md-3">
-              <div class="product-box">
-                <a routerLink="/products/{{ product.id }}">
-                  <img src="{{ product.imageUrl }}" alt="" class="img-responsive">
-  
-                </a>
-  
-                <a routerLink="/products/{{ product.id }}">
-                  <h1> {{ product.name }}</h1>
-                </a>
-                
-                <div class="price"> {{ product.unitPrice | currency:'USD' }}</div>
-                <a href="#" class="primary-btn">Add to cart</a>
-              </div>
-          </div>
-  
-          <!--If product not found-->
-          <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-              No Product Found!
-          </div>
-        </div>
-  
-        <!--- Begin footer -->
-        <div class="footer-pagination">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-md-9" style="padding-left: 30% ">
-                    <ngb-pagination [(page)]="thePageNumber"
-                                    [pageSize]="thePageSize"
-                                    [collectionSize]="theTotalElements"
-                                    (pageChange)="listProducts()">  
-                      <!-- left-hand side: parameters of ngb-pagination component
-                      right-hand side: properties of ProductListComponent
-                    Event-binding pageChange event-->
-                    </ngb-pagination>
-  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-         <!--- End footer -->
-      </div>
-    </div>
-  </div>
-  
+<div class="container-fluid">
 
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+  </div>
+
+
+
+
+  
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+      </div>
+      <div class="card-body">
+          <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+          <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+      </div>
+  </div>
+
+</div>

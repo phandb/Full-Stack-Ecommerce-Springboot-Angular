@@ -1,15 +1,11 @@
-<div class="menu-sidebar-content js-scrollbar1">
-    <nav class="navbar-sidebar">
-      <ul class="list-unstyled navbar-list">
-        
-        <li *ngFor="let productCategory of productCategories">
-          <a routerLink="/category/{{ productCategory.id }}/{{ productCategory.categoryName }}" 
-            routerLinkActive="active-link"> 
-            {{ productCategory.categoryName }}
-          </a>
-        </li>
-        
-        
-      </ul>
-    </nav>
-  </div>
+ <!-- Heading -->
+ <div class="">
+ <h4 class="sidebar-heading">Product Category</h4> 
+  <ul class= "list-group text-white bg-dark">
+    <li class="list-group-item  " *ngFor="let productCategory of productCategories">
+      <a routerLink="/category/{{ productCategory.id }}/{{ productCategory.categoryName }}"
+        routerLinkActive="active-link"> {{ productCategory.categoryName}}
+    </a>
+    </li>
+  </ul>
+</div>
