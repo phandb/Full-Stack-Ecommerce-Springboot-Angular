@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { SearchComponent } from './components/search/search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 //  Define Routes
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
     ProductListComponent,
     ProductCategoryMenuComponent,
     ProductDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    CartStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
