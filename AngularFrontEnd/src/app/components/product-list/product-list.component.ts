@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
 
   // Properties for pagination
   thePageNumber = 1;
-  thePageSize = 10;
+  thePageSize = 5;
   theTotalElements = 0;
 
   constructor(private productService: ProductService,
@@ -83,6 +83,8 @@ export class ProductListComponent implements OnInit {
       this.thePageNumber = 1;
     }
     this.previousCategoryId = this.currrentCategoryId;
+
+    // For debug purpose
     console.log(`currentCategoryId=${this.currrentCategoryId}, thePageNumber=${this.thePageNumber}`);
     // Get the products for given product id
     //  Pagination component page is 1-based while Spring Data Rest page is 0-based
@@ -98,8 +100,14 @@ export class ProductListComponent implements OnInit {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;  //  Spring Data REST is 0-based
       this.thePageSize = data.page.size;
-      this.theTotalElements = data.page.TotalElements;
+      this.theTotalElements = data.page.totalElements;
     };
+  }
+
+  updatePageSize(pageSize: number) {
+    this.thePageSize = pageSize;
+    this.thePageNumber = 1;
+    this.listProducts();
   }
 
 

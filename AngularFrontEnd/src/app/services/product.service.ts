@@ -18,7 +18,7 @@ export class ProductService {
 
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
-  // Make sure to register HttpClient in app.module section import 
+  // Make sure to register HttpClient in app.module section import
   constructor(private httpClient: HttpClient) { }
 
   /******   Methods  *********/
@@ -74,7 +74,7 @@ interface GetResponseProducts{
   };
   // Pagination
   page: {
-    size: number, 
+    size: number,
     totalElements: number,
     totalPages: number,
     number: number

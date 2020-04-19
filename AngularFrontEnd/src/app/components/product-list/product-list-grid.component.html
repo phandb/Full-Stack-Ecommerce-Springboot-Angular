@@ -6,6 +6,8 @@
 
   </div>
   
+  
+   
  
   <div  class="row mb-4">
     <div *ngFor="let product of products"  class="col-lg-2 col-md-5 col-sm-5 mb-4 "   >
@@ -35,29 +37,39 @@
      No Product Found!!!
    </div>
 
-   <!-- Pagination-->
-   <div class="pagination">
-     <div class="row">
-       <div class="col-md-6">
-         <div class="col-md-6">
-           <div class="row">
-             <div class="col-m-9">
-               <ngb-pagination [(page)]="thePageNumber"
-                               [pageSize]="thePageSize"
-                               [collectionSize]="theTotalElements"
-                               (pageChange)="listProducts()">
-                   <!-- left-hand side: parameters of ngb-pagination component
-                    right-hand side: properties of ProductListComponent
-                  Event-binding pageChange event-->            
-               </ngb-pagination>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
-
-<!-- End of Pagination-->
+    <!-- Pagination-->
+    <div class="footer-pagination ">
+      
+            <div class="row ">
+              <div class="col-md-9 d-flex justify-content-center" >
+                <ngb-pagination [(page)]="thePageNumber"
+                                [pageSize]="thePageSize"
+                                [collectionSize]="theTotalElements"
+                                [maxSize]="5"
+                                [boundaryLinks]="true"
+                                (pageChange)="listProducts()">
+                    <!-- left-hand side: parameters of ngb-pagination component
+                     right-hand side: properties of ProductListComponent
+                   Event-binding pageChange event-->            
+                </ngb-pagination>
+              </div>
+              <div class="col-md-3 justify-content-center" >
+                 <span class="mr-2">Page Size</span>
+  
+                 <select (change)="updatePageSize($event.target.value)">
+                   <option>2</option>
+                   <option selected="true">5</option>
+                   <option>10</option>
+                   <option>20</option>
+                   <option>25</option>
+                 </select>
+              </div>
+              
+            </div>
+        
+    </div>
+  
+  <!-- End of Pagination-->
    
    
 
