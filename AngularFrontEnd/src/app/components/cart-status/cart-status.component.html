@@ -1,10 +1,10 @@
 <li class="nav-item dropdown no-arrow mx-1">
-    <a class="nav-link dropdown-toggle" href="shopping-detail.html" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a routerLink="/cart-details" class="nav-link " >
         <div class="">{{ totalPrice | currency: 'USD'}}
             <!-- Counter - Alerts -->
             <span class="badge badge-danger badge-counter">{{ totalQuantity }}</span>
         </div>
-        <i class="fas fa-shopping-cart fa-fw"></i>
+        <i class="fas fa-shopping-cart fa-fw" area-hidden="true"></i>
 
     </a>
     
