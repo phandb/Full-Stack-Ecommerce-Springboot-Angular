@@ -1,8 +1,8 @@
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="shopping-detail.html" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="">$39.22
+        <div class="">{{ totalPrice | currency: 'USD'}}
             <!-- Counter - Alerts -->
-            <span class="badge badge-danger badge-counter">3+</span>
+            <span class="badge badge-danger badge-counter">{{ totalQuantity }}</span>
         </div>
         <i class="fas fa-shopping-cart fa-fw"></i>
 
