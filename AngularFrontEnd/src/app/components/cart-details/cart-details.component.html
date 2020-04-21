@@ -18,7 +18,36 @@
                         </td>
                         <td>
                             <div class="">
-                                <label for="">Quantity:</label> {{ cartItem.quantity }}
+                                <label for="">Quantity:</label> 
+                                <div class="row no-gutters">
+                                    <div class="col">
+                                        <button class="btn btn-outline-danger btn-sm">
+                                            <i class="fas fa-minus">
+
+                                            </i>
+                                        </button>
+                                    </div>
+
+
+                                    <div class="col ml-4 mr-2">
+                                        {{ cartItem.quantity }}
+                                    </div>
+
+                                    <div class="col">
+                                        <button (click)="incrementQuantity(cartItem)" class="btn btn-outline-success btn-sm">
+                                            <i class="fas fa-plus">
+
+                                            </i>
+                                        </button>
+                                    </div>
+
+                                    
+                                    <div class="col-8">
+
+                                    </div>
+
+                                </div>
+
                             </div>
                             <p class="mt-2">Subtotal: {{ cartItem.quantity * cartItem.unitPrice }}</p>
                         </td>
