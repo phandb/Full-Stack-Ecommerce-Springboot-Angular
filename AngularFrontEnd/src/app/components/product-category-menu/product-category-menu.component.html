@@ -1,11 +1,14 @@
  <!-- Heading -->
- <div class="">
+ 
  <h4 class="sidebar-heading">Product Category</h4> 
-  <ul class= "list-group text-white bg-dark">
-    <li class="list-group-item  " *ngFor="let productCategory of productCategories">
+ <ul class="nav flex-column d-flex justify-content-center">
+
+    <li class=" nav-item ml-5 mb-3 text-gray-900 " *ngFor="let productCategory of productCategories">
       <a routerLink="/category/{{ productCategory.id }}/{{ productCategory.categoryName }}"
-        routerLinkActive="active-link"> {{ productCategory.categoryName}}
+        routerLinkActive="active-link text-gray-100"> {{ productCategory.categoryName}}
     </a>
     </li>
-  </ul>
-</div>
+
+ 
+  
+</ul>
