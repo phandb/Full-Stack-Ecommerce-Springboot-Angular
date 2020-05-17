@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+        <fieldset>
+          <legend>Customer</legend>
+          <!-- Customer form group -->
+          <div formGroupName="customer"  class="form-group">
+            <div class="form-group row">
+                <label >First Name</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="firstName">
+                
+              </div>
+              <div class="form-group row">
+                <label >Last Name</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="lastName">
+                
+              </div>
+              <div class="form-group row">
+                <label >Email</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="email">
+                
+              </div>
+
+
+
+          </div>
+          <!-- Shipping Address -->
+          <div formGroupName="shippingAddress"  class="form-group">
+            <div class="form-group row">
+                <label >Country</label>
+                <select type="text" class="form-control"         
+                       formControlName="country">
+                       <option>TODO</option>
+                </select>
+                
+              </div>
+              <div class="form-group row">
+                <label >Street</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="street">
+                
+              </div>
+              <div class="form-group row">
+                <label >City</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="city">
+                
+              </div>
+              <div class="form-group row">
+                <label >State</label>
+                <select type="text" class="form-control"         
+                       formControlName="state">
+                       <option>TODO</option>
+                </select>
+                
+              </div>
+              <div class="form-group row">
+                <label >Zip Code</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="zipCode">
+                
+              </div>
+
+
+          </div>
+          <!-- Add check box to auto fill for billing address-->
+          <div class="input-space">
+              <label for="" class="au-checkbox">
+                  <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)" >
+                  <span class="au-checkmark">Billing Address same as Shipping Address</span>
+              </label>
+          </div>
+
+          <!--Billing Address-->
+          <div formGroupName="billingAddress"  class="form-group">
+            <div class="form-group row">
+                <label >Country</label>
+                <select type="text" class="form-control"         
+                       formControlName="country">
+                       <option>TODO</option>
+                </select>
+                
+              </div>
+              <div class="form-group row">
+                <label >Street</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="street">
+                
+              </div>
+              <div class="form-group row">
+                <label >City</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="city">
+                
+              </div>
+              <div class="form-group row">
+                <label >State</label>
+                <select type="text" class="form-control"         
+                       formControlName="state">
+                       <option>TODO</option>
+                </select>
+                
+              </div>
+              <div class="form-group row">
+                <label >Zip Code</label>
+                <input type="text" class="form-control"
+                       
+                       formControlName="zipCode">
+                
+              </div>
+
+
+          </div>
+         
+          <!-- submit button -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+</div>
