@@ -1,129 +1,233 @@
 <div class="container-fluid">
-    <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
-        <fieldset>
-          <legend>Customer</legend>
-          <!-- Customer form group -->
-          <div formGroupName="customer"  class="form-group">
-            <div class="form-group row">
-                <label >First Name</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="firstName">
-                
-              </div>
-              <div class="form-group row">
-                <label >Last Name</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="lastName">
-                
-              </div>
-              <div class="form-group row">
-                <label >Email</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="email">
-                
-              </div>
+    <div class="card">
+        <div class="card-body p-0">
+            <div class="row">
+                <div class="col-lg-8 mx-auto m-5">
+                    <div class="col-lg-10 ">
+                        <form class="form-horizontal" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+                            <fieldset class="border border-primary pl-2 mb-5">
+                               <legend class="w-auto text-size-mall"><h5>Customer</h5></legend>
+                              <!-- Customer form group -->
+                              <div formGroupName="customer"  class="form-group ml-5">
+                                
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" >First Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" 
+                                                class="form-control "
+                                                formControlName="firstName">
+                                    </div>
+                                    
+                                    
+                                  </div>
+                                  <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label"  >Last Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text"
+                                                 class="form-control"
+                                                 formControlName="lastName">
+                                    </div>
+                                    
+                                    
+                                  </div>
+                                  <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label"  >Email</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" 
+                                                class="form-control"
+                                                formControlName="email">
+                                    </div>
+                                    
+                                    
+                                  </div>
+                    
+                    
+                    
+                              </div>
+                            </fieldset>
+                            
+                              <!-- Shipping Address -->
+                              <fieldset class="border border-primary pl-2 mb-5">
+                                <legend class="w-auto"><h5>Shipping Address</h5></legend>
+                                <div formGroupName="shippingAddress" class="form-group ml-5">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >Country</label>
+                                        <select type="text" class="form-control col-sm-8"         
+                                               formControlName="country">
+                                               <option>TODO</option>
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"  >Street</label>
+                                        <input type="text" class="form-control"
+                                            class="col-sm-8"
+                                               formControlName="street">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >City</label>
+                                        <input type="text" class="form-control"
+                                                class="col-sm-8"
+                                               formControlName="city">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"  >State</label>
+                                        <select type="text" 
+                                                class="form-control col-sm-8"  
+                                               formControlName="state">
+                                               <option>TODO</option>
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >Zip Code</label>
+                                        <input type="text" 
+                                                class="form-control col-sm-8"
+                                               formControlName="zipCode">
+                                        
+                                      </div>
+                        
+                        
+                                  </div>
+                            </fieldset>
+                            
+                              <!-- Add check box to auto fill for billing address-->
+                              <div class="custom-control custom-checkbox m-4">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" >
+                                <label class="custom-control-label" for="customCheck1">Billing address same as shipping address</label>
+                              </div>
+
+                    
+                              <!--Billing Address-->
+                              <fieldset class="border border-primary pl-2 mb-5">
+                                <legend class="w-auto"><h5>Billing Address</h5></legend>
+                                <div formGroupName="billingAddress"  class="form-group ml-5">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >Country</label>
+                                        <select type="text" class="form-control col-sm-8"        
+                                               formControlName="country">
+                                               <option>TODO</option>
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"  >Street</label>
+                                        <input type="text" class="form-control col-sm-8"
+                                               formControlName="street">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >City</label>
+                                        <input type="text" class="form-control col-sm-8"
+                                                class="col-sm-8"
+                                               formControlName="city">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >State</label>
+                                        <select type="text" class="form-control col-sm-8"         
+                                               formControlName="state">
+                                               <option>TODO</option>
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" >Zip Code</label>
+                                        <input type="text" class="form-control col-sm-8"
+                                                
+                                               formControlName="zipCode">
+                                        
+                                      </div>
+                        
+                        
+                                  </div>
+                            </fieldset>
+                            <!-- Credit Card-->
+                            <fieldset class="border border-primary pl-2 mb-5">
+                                <legend class="w-auto"><h5>Credit Card</h5></legend>
+                                <div formGroupName="creditCard"  class="form-group ml-5">
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label" >Card Type</label>
+                                        <select type="text" class="form-control col-sm-6"        
+                                               formControlName="cardType">
+                                               <option>Visa</option>
+                                               <option>Master Card</option>
+                                               
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label"  >Name on Card</label>
+                                        <input type="text" class="form-control col-sm-6"
+                                               
+                                               formControlName="nameOnCard">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label" >Card Number</label>
+                                        <input type="text" class="form-control col-sm-6"
+                                               
+                                               formControlName="cardNumber">
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label" >Security Code</label>
+                                        <input type="text" class="form-control col-sm-6"         
+                                               formControlName="securityCode">
+                                                               
+                                      </div>
+                                      
+                                      <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label" >Expiration Month</label>
+                                        <select type="text" class="form-control col-sm-6"        
+                                               formControlName="expirationMonth">
+                                               <option>Todo</option>
+                                               
+                                               
+                                        </select>
+                                        
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label" >Expiration Year</label>
+                                        <select type="text" class="form-control col-sm-6"        
+                                               formControlName="expirationYear">
+                                               <option>Todo</option>
+                                               
+                                               
+                                        </select>
+                                        
+                                      </div>
+                        
+                        
+                                  </div>
+                            </fieldset>
+                            <!-- Order Details-->
+                            <fieldset class="border border-primary pl-2 mb-5">
+                              <legend class="w-auto"><h5>Review Your Order</h5></legend>
+                              <div   class="form-group ml-5">
+                                  <div class="form-group row">
+                            
+                                  <p>Total Quantity: {{ totalQuantity }}</p>
+                                    <p>Shipping: Free</p>
+                                    <p>Total Price: {{ totalPrice | currency: 'USD' }}</p>
+                                  </div>
+                              </div>
+                            </fieldset>
+                             
+                             
+                              <!-- submit button -->
+                              <button type="submit" class="btn btn-outline-success">Submit</button>
+                            
+                          </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+    </div>
 
-          </div>
-          <!-- Shipping Address -->
-          <div formGroupName="shippingAddress"  class="form-group">
-            <div class="form-group row">
-                <label >Country</label>
-                <select type="text" class="form-control"         
-                       formControlName="country">
-                       <option>TODO</option>
-                </select>
-                
-              </div>
-              <div class="form-group row">
-                <label >Street</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="street">
-                
-              </div>
-              <div class="form-group row">
-                <label >City</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="city">
-                
-              </div>
-              <div class="form-group row">
-                <label >State</label>
-                <select type="text" class="form-control"         
-                       formControlName="state">
-                       <option>TODO</option>
-                </select>
-                
-              </div>
-              <div class="form-group row">
-                <label >Zip Code</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="zipCode">
-                
-              </div>
-
-
-          </div>
-          <!-- Add check box to auto fill for billing address-->
-          <div class="input-space">
-              <label for="" class="au-checkbox">
-                  <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)" >
-                  <span class="au-checkmark">Billing Address same as Shipping Address</span>
-              </label>
-          </div>
-
-          <!--Billing Address-->
-          <div formGroupName="billingAddress"  class="form-group">
-            <div class="form-group row">
-                <label >Country</label>
-                <select type="text" class="form-control"         
-                       formControlName="country">
-                       <option>TODO</option>
-                </select>
-                
-              </div>
-              <div class="form-group row">
-                <label >Street</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="street">
-                
-              </div>
-              <div class="form-group row">
-                <label >City</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="city">
-                
-              </div>
-              <div class="form-group row">
-                <label >State</label>
-                <select type="text" class="form-control"         
-                       formControlName="state">
-                       <option>TODO</option>
-                </select>
-                
-              </div>
-              <div class="form-group row">
-                <label >Zip Code</label>
-                <input type="text" class="form-control"
-                       
-                       formControlName="zipCode">
-                
-              </div>
-
-
-          </div>
-         
-          <!-- submit button -->
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
-      </form>
 </div>
