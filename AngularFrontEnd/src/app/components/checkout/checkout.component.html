@@ -95,7 +95,8 @@
                             
                               <!-- Add check box to auto fill for billing address-->
                               <div class="custom-control custom-checkbox m-4">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1" >
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" 
+                                      (change)="copyShippingAddressToBillingAddress($event)">
                                 <label class="custom-control-label" for="customCheck1">Billing address same as shipping address</label>
                               </div>
 
@@ -205,20 +206,20 @@
                             </fieldset>
                             <!-- Order Details-->
                             <fieldset class="border border-primary pl-2 mb-5">
-                              <legend class="w-auto"><h5>Review Your Order</h5></legend>
+                              <legend class="w-auto"><h6>Review Your Order</h6></legend>
                               <div   class="form-group ml-5">
-                                  <div class="form-group row">
+                                  <div class="form-group ">
                             
-                                  <p>Total Quantity: {{ totalQuantity }}</p>
-                                    <p>Shipping: Free</p>
-                                    <p>Total Price: {{ totalPrice | currency: 'USD' }}</p>
+                                      <p> Total Quantity: {{ totalQuantity }} </p>
+                                      <p> Shipping: Free </p>
+                                      <p> Total Price: {{ totalPrice | currency: 'USD' }} </p>
                                   </div>
                               </div>
                             </fieldset>
                              
                              
                               <!-- submit button -->
-                              <button type="submit" class="btn btn-outline-success">Submit</button>
+                              <button type="submit" class="btn btn-outline-success">Place Order</button>
                             
                           </form>
 
