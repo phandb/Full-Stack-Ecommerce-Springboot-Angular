@@ -2,7 +2,7 @@
     <a routerLink="/cart-details" class="nav-link " >
         <div class="badge-pill badge-success">{{ totalPrice | currency: 'USD'}}
             <!-- Counter - Alerts -->
-            <span class="badge-danger badge-pill justify-content-end">{{ totalQuantity }}</span>
+            <span class="badge badge-danger badge-counter justify-content-end">{{ totalQuantity }}</span>
         </div>
         <i class="fas fa-shopping-cart fa-fw" area-hidden="true"></i>
 
@@ -10,3 +10,5 @@
     
 
 </li>
+
+
