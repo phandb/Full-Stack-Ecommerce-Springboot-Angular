@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ShoppingFormService } from 'src/app/services/shopping-form.service';
+import { Country } from 'src/app/common/country';
+import { State } from 'src/app/common/state';
 
 @Component({
   selector: 'app-checkout',
@@ -16,6 +18,11 @@ export class CheckoutComponent implements OnInit {
 
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
+
+  countries: Country[] = [];
+
+  shippingAddressStates: State[] = [];
+  billingAddressStates: State[] = [];
 
   constructor(private formBuilder: FormBuilder,
               private shoppingFormService: ShoppingFormService) { }
@@ -74,6 +81,15 @@ export class CheckoutComponent implements OnInit {
         this.creditCardYears = data;
       }
     );
+
+    // Populate countries
+
+    this.shoppingFormService.getCountries().subscribe(
+      data => {
+        console.log('Retrieved countries: ' + JSON.stringify(data));
+        this.countries = data;
+      }
+    );
   }
 
   copyShippingAddressToBillingAddress(event) {
@@ -81,15 +97,24 @@ export class CheckoutComponent implements OnInit {
     if (event.target.checked) {
       this.checkoutFormGroup.controls.billingAddress
           .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+
+          // bug fix for states
+      this.billingAddressStates = this.shippingAddressStates;
     }
     else {
       this.checkoutFormGroup.controls.billingAddress.reset();
+
+      // bug fix for states
+      this.billingAddressStates = [];
     }
   }
 
   onSubmit() {
     console.log('Handling the submit button');
     console.log(this.checkoutFormGroup.get('customer').value);
+    console.log('The eamil address is ' + this.checkoutFormGroup.get('customer').value.email);
+    console.log('Shipping address country is ' + this.checkoutFormGroup.get('shippingAddress').value.country.name);
+    console.log('Shipping address state is ' + this.checkoutFormGroup.get('shippingAddress').value.state.name);
   }
 
   handleMonthsAndYears() {
@@ -110,6 +135,31 @@ export class CheckoutComponent implements OnInit {
       data => {
         console.log('Retrieved credt card months: ' + JSON.stringify(data));
         this.creditCardMonths = data;
+      }
+    );
+  }
+
+  getStates(formGroupName: string){
+
+    const formGroup = this.checkoutFormGroup.get(formGroupName);
+
+    const countryCode = formGroup.value.country.code;
+    const countryName = formGroup.value.country.name;
+
+    console.log('${formGroupName} country code: ${countryCode}');
+    console.log('${formGroupName} country name: ${countryName}');
+
+    this.shoppingFormService.getStates(countryCode).subscribe(
+      data => {
+        if (formGroupName === 'shippingAddress') {
+          this.shippingAddressStates = data;
+        }
+        else {
+          this.billingAddressStates = data;
+        }
+
+        // select item as default
+        formGroup.get('state').setValue(data[0]);
       }
     );
   }

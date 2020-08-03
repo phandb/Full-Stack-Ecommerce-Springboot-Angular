@@ -53,8 +53,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >Country</label>
                                         <select type="text" class="form-control col-sm-8"         
-                                               formControlName="country">
-                                               <option>TODO</option>
+                                               formControlName="country" (change)="getStates('shippingAddress')">
+                                               <option *ngFor= "let country of countries" [ngValue]="country">
+                                                    {{ country.name }}
+                                               </option>
                                         </select>
                                         
                                       </div>
@@ -76,8 +78,10 @@
                                         <label class="col-sm-2 col-form-label"  >State</label>
                                         <select type="text" 
                                                 class="form-control col-sm-8"  
-                                               formControlName="state">
-                                               <option>TODO</option>
+                                               formControlName="state" >
+                                               <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                                                  {{ state.name }}
+                                                </option>
                                         </select>
                                         
                                       </div>
@@ -108,8 +112,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >Country</label>
                                         <select type="text" class="form-control col-sm-8"        
-                                               formControlName="country">
-                                               <option>TODO</option>
+                                               formControlName="country" (change)="getStates('billingAddress')">
+                                               <option *ngFor="let country of countries" [ngValue]="country">
+                                                    {{ country.name }}
+                                               </option>
+                                             
                                         </select>
                                         
                                       </div>
@@ -129,8 +136,10 @@
                                       <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >State</label>
                                         <select type="text" class="form-control col-sm-8"         
-                                               formControlName="state">
-                                               <option>TODO</option>
+                                               formControlName="state"  >
+                                               <option *ngFor="let state of billingAddressStates" [ngValue]="state">
+                                                {{ state.name }}
+                                              </option>
                                         </select>
                                         
                                       </div>
