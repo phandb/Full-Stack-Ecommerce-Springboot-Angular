@@ -52,9 +52,9 @@
                                 <div formGroupName="shippingAddress" class="form-group ml-5">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >Country</label>
-                                        <select type="text" class="form-control col-sm-8"         
+                                        <select class="form-control col-sm-8"         
                                                formControlName="country" (change)="getStates('shippingAddress')">
-                                               <option *ngFor= "let country of countries" [ngValue]="country">
+                                               <option *ngFor="let country of countries" [ngValue]="country">
                                                     {{ country.name }}
                                                </option>
                                         </select>
@@ -76,8 +76,7 @@
                                       </div>
                                       <div class="form-group row">
                                         <label class="col-sm-2 col-form-label"  >State</label>
-                                        <select type="text" 
-                                                class="form-control col-sm-8"  
+                                        <select class="form-control col-sm-8"  
                                                formControlName="state" >
                                                <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
                                                   {{ state.name }}
@@ -111,7 +110,7 @@
                                 <div formGroupName="billingAddress"  class="form-group ml-5">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >Country</label>
-                                        <select type="text" class="form-control col-sm-8"        
+                                        <select  class="form-control col-sm-8"        
                                                formControlName="country" (change)="getStates('billingAddress')">
                                                <option *ngFor="let country of countries" [ngValue]="country">
                                                     {{ country.name }}
@@ -135,7 +134,7 @@
                                       </div>
                                       <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" >State</label>
-                                        <select type="text" class="form-control col-sm-8"         
+                                        <select  class="form-control col-sm-8"         
                                                formControlName="state"  >
                                                <option *ngFor="let state of billingAddressStates" [ngValue]="state">
                                                 {{ state.name }}
@@ -160,7 +159,7 @@
                                 <div formGroupName="creditCard"  class="form-group ml-5">
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label" >Card Type</label>
-                                        <select type="text" class="form-control col-sm-6"        
+                                        <select class="form-control col-sm-6"        
                                                formControlName="cardType">
                                                <option>Visa</option>
                                                <option>Master Card</option>
@@ -191,7 +190,7 @@
                                       
                                       <div class="form-group row">
                                         <label class="col-sm-4 col-form-label" >Expiration Month</label>
-                                        <select type="text" class="form-control col-sm-6"        
+                                        <select  class="form-control col-sm-6"        
                                                formControlName="expirationMonth">
                                                <option *ngFor="let month of creditCardMonths"> 
                                                       {{ month }}
@@ -203,7 +202,7 @@
                                       </div>
                                       <div class="form-group row">
                                         <label class="col-sm-4 col-form-label" >Expiration Year</label>
-                                        <select type="text" class="form-control col-sm-6"        
+                                        <select  class="form-control col-sm-6"        
                                                formControlName="expirationYear" (change)="handleMonthsAndYears()">
                                                <option *ngFor="let year of creditCardYears">
                                                   {{ year }}

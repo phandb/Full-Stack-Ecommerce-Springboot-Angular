@@ -40,6 +40,7 @@ export class CheckoutComponent implements OnInit {
         street: [''],
         city: [''],
         state: [''],
+        country: [''],
         zipCode: ['']
       }),
 
@@ -47,6 +48,7 @@ export class CheckoutComponent implements OnInit {
         street: [''],
         city: [''],
         state: [''],
+        country: [''],
         zipCode: ['']
       }),
 
@@ -112,7 +114,8 @@ export class CheckoutComponent implements OnInit {
   onSubmit() {
     console.log('Handling the submit button');
     console.log(this.checkoutFormGroup.get('customer').value);
-    console.log('The eamil address is ' + this.checkoutFormGroup.get('customer').value.email);
+    console.log('The email address is ' + this.checkoutFormGroup.get('customer').value.email);
+
     console.log('Shipping address country is ' + this.checkoutFormGroup.get('shippingAddress').value.country.name);
     console.log('Shipping address state is ' + this.checkoutFormGroup.get('shippingAddress').value.state.name);
   }
@@ -146,8 +149,8 @@ export class CheckoutComponent implements OnInit {
     const countryCode = formGroup.value.country.code;
     const countryName = formGroup.value.country.name;
 
-    console.log('${formGroupName} country code: ${countryCode}');
-    console.log('${formGroupName} country name: ${countryName}');
+    console.log(`${formGroupName} country code: ${countryCode}`);
+    console.log(`${formGroupName} country name: ${countryName}`);
 
     this.shoppingFormService.getStates(countryCode).subscribe(
       data => {
@@ -158,7 +161,7 @@ export class CheckoutComponent implements OnInit {
           this.billingAddressStates = data;
         }
 
-        // select item as default
+        // select first item as default
         formGroup.get('state').setValue(data[0]);
       }
     );

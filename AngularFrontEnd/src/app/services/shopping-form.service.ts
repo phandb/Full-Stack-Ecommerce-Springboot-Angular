@@ -18,18 +18,17 @@ export class ShoppingFormService {
 
   getCountries(): Observable<Country[]> {
 
-    return this.httpClient.get<GetResponseCountries>(this.countriesUrl)
-                          .pipe(map(
-                            response => response._embedded.countries
+    return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
+                          map( response => response._embedded.countries
                             ));
   }
 
   getStates(theCountryCode: string): Observable<State[]> {
 
     // search for url
-    const searchStateUrl = '${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}';
+    const searchStatesUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
 
-    return  this.httpClient.get<GetResponseStates>(searchStateUrl).pipe(
+    return  this.httpClient.get<GetResponseStates>(searchStatesUrl).pipe(
       map(response => response._embedded.states)
     );
   }
